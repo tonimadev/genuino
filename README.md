@@ -1,73 +1,73 @@
 # Genuino SDK 🚀
 
-Genuino é um SDK inovador para **Kotlin Multiplatform (KMP)** que permite a geração dinâmica de interfaces de usuário (UI) utilizando modelos de linguagem de grande escala (LLM), como o Google Gemini.
+Genuino is an innovative SDK for **Kotlin Multiplatform (KMP)** that enables dynamic user interface (UI) generation using Large Language Models (LLM), such as Google Gemini.
 
-Com o Genuino, você pode descrever componentes de interface através de linguagem natural e o SDK se encarrega de renderizá-los nativamente em Android e iOS usando Compose Multiplatform.
+With Genuino, you can describe interface components using natural language, and the SDK takes care of rendering them natively on Android and iOS using Compose Multiplatform.
 
-## ✨ Principais Funcionalidades
+## ✨ Key Features
 
-- 🧠 **Geração de UI via AI:** Transforme prompts de texto em componentes funcionais.
-- 📱 **Multiplataforma:** Suporte total para Android e iOS (e experimental para Desktop/Web).
-- 🎨 **Tematização Flexível:** Integre facilmente com o seu `MaterialTheme`.
-- ⚡ **Extensível:** Suporte a diferentes engines de LLM e handlers de ação personalizados.
-- 🔄 **Gerenciamento de Histórico:** Funções nativas de Undo/Redo para as interfaces geradas.
+- 🧠 **AI-Powered UI Generation:** Transform text prompts into functional components.
+- 📱 **Multiplatform:** Full support for Android and iOS (and experimental for Desktop/Web).
+- 🎨 **Flexible Theming:** Easily integrate with your `MaterialTheme`.
+- ⚡ **Extensible:** Support for different LLM engines and custom action handlers.
+- 🔄 **History Management:** Native Undo/Redo functions for the generated interfaces.
 
-## 📦 Estrutura do Projeto
+## 📦 Project Structure
 
-* `genuino-sdk`: O núcleo do SDK contendo a lógica de renderização, integração com LLM e contratos.
-* `genuino-sample`: Aplicativo de exemplo demonstrando como integrar e usar o SDK na prática.
-- `iosApp`: O ponto de entrada nativo para a aplicação iOS.
+* `genuino-sdk`: The core of the SDK containing the rendering logic, LLM integration, and contracts.
+* `genuino-sample`: A sample application demonstrating how to integrate and use the SDK in practice.
+- `iosApp`: The native entry point for the iOS application.
 
-## 🚀 Como Usar
+## 🚀 How to Use
 
-### 1. Configuração Básica
+### 1. Basic Configuration
 
-Para utilizar o Genuino em seu projeto Compose Multiplatform, você precisa configurar o `GenuinoConfig`:
+To use Genuino in your Compose Multiplatform project, you need to configure the `GenuinoConfig`:
 
 ```kotlin
 val config = GenuinoConfig(
-    llmEngine = GeminiLlmEngine(apiKey = "SUA_API_KEY"),
-    themeProvider = SeuThemeProvider(),
-    actionHandler = SeuActionHandler()
+    llmEngine = GeminiLlmEngine(apiKey = "YOUR_API_KEY"),
+    themeProvider = YourThemeProvider(),
+    actionHandler = YourActionHandler()
 )
 ```
 
-### 2. Renderizando a Interface
+### 2. Rendering the Interface
 
-Basta utilizar o Composable `GenuinoContainer` passando um prompt (ex: "Crie um card de perfil de usuário"):
+Simply use the `GenuinoContainer` Composable passing a prompt (e.g., "Create a user profile card"):
 
 ```kotlin
 GenuinoContainer(
-    prompt = "Crie um formulário de login com campos de e-mail e senha",
+    prompt = "Create a login form with email and password fields",
     config = config,
     modifier = Modifier.fillMaxSize()
 )
 ```
 
-## 🛠 Comandos de Build
+## 🛠 Build Commands
 
 ### Android
-Para gerar o APK de debug:
+To generate the debug APK:
 ```shell
 ./gradlew :genuino-sample:assembleDebug
 ```
 
 ### iOS
-Para compilar o framework e rodar no simulador (via Xcode):
-1. Abra a pasta `iosApp` no Xcode.
-2. Selecione o esquema `iosApp` e o simulador desejado.
-3. Clique em **Run**.
+To compile the framework and run on the simulator (via Xcode):
+1. Open the `iosApp` folder in Xcode.
+2. Select the `iosApp` scheme and the desired simulator.
+3. Click **Run**.
 
-Alternativamente, você pode buildar via terminal:
+Alternatively, you can build via terminal:
 ```shell
 ./gradlew :genuino-sample:embedAndSignAppleFrameworkForXcode
 ```
 
 ---
 
-## 🏗 Tecnologias Utilizadas
+## 🏗 Technologies Used
 
 - [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
 - [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform)
-- [Ktor](https://ktor.io/) (para chamadas de rede)
+- [Ktor](https://ktor.io/) (for network calls)
 - [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization)
